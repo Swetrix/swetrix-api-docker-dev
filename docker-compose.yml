@@ -1,4 +1,4 @@
-version: ${DOCKER_VERSION}
+version: ${DOCKER_COMPOSE_VERSION}
 services:
   mysql:
     image: mysql:${MYSQL_VERSION}
