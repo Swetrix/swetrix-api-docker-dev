@@ -17,6 +17,20 @@ services:
     container_name: swetrix-api-clickhouse
     ports:
       - ${CLICKHOUSE_PORT}:8123
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:${PMA_VERSION}
+    container_name: swetrix-api-phpmyadmin
+    environment:
+      - PMA_HOST=mysql
+    ports:
+      - ${PMA_PORT}:80
+  redis-commander:
+    image: rediscommander/redis-commander:${REDIS_COMMANDER_VERSION}
+    container_name: swetrix-api-redis-commander
+    environment:
+      - REDIS_HOSTS=redis
+    ports:
+      - ${REDIS_COMMANDER_PORT}:8081
 networks:
   default:
     name: swetrix-api
